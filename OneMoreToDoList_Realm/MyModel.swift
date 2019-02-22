@@ -13,5 +13,5 @@ class MyModel: Object {
     @objc dynamic var myText: String = ""
     @objc dynamic var myAge: Int = 0
     @objc dynamic var myBool: Bool = false
-    @objc dynamic var arrayInCase: [String] = [String]()
+    @objc dynamic var arrayInCase: Double = 0
 }
