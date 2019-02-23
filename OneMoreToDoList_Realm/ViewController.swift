@@ -26,23 +26,23 @@ class ViewController: UIViewController {
 
     @IBAction func Button1(_ sender: UIButton) {
         myLabel.text = "Sudoku und KAK"
-        instance1.myText = "Sudoku und KAK"
-        writeToRealm()
+        writeToRealm(senderButton: 1)
     }
     
     @IBAction func Button2(_ sender: UIButton) {
-        myLabel.text = myLabel.text! + " und Kakuro"
+        //let instance2 = MyModel()
+        
+        try! realm.write {
+            instance1.myAge = 400
+            realm.add(instance1)
+        }
     }
     
-    func writeToRealm() {
-        
-        do {
-            try realm.write {
-                realm.add(instance1)
-            }
-        }
-        catch {
-            print("\(error)")
+    func writeToRealm(senderButton: Int = 0) {
+        print(senderButton)
+        try! realm.write {
+            instance1.myText = myLabel.text!
+            realm.add(instance1)
         }
     }
     
