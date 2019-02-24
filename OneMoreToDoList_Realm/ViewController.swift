@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     
     @IBAction func Button2(_ sender: UIButton) {
         //let instance2 = MyModel()
-        
+        myLabel.text = "400"
         try! realm.write {
             instance1.myAge = 400
             realm.add(instance1)
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         myResults = realm.objects(MyModel.self)
         if let myResults2 = myResults, myResults2.count > 0 {
             let text1 = myResults2[myResults2.count - 1].myText
-            let text2 = "\(myResults2[myResults2.count - 1].myAge)"
+            let text2 = myResults2[myResults2.count - 1].myAge != 0 ? myResults2[myResults2.count - 1].myAge : 20//"\(myResults2[myResults2.count - 1].myAge)"
             myLabel.text = "\(text1) \(text2)"
         }
     }
